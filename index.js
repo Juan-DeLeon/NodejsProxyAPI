@@ -1,8 +1,11 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
+const dotenv = require('dotenv');
 
 app.use(express.json());
+
+dotenv.config();
 
 // API TO REDIRECT POST CALLS
 const CSC_API = 'http://10.26.110.247:9035/api/LeadDigital'
