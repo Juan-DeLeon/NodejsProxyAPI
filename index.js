@@ -12,12 +12,16 @@ app.post('/', function (req, res) {
     axios({
         method: 'POST',
         url: CSC_API,
-        data: req.body
+        data: req.body,
+        timeout: 5000
     }).then(clientResponse => {
         res.status(clientResponse.status).send(clientResponse.data)
     })
     .catch(err => {
-        res.status(err.status || 500).send(err.response.data || err)
+        if (err.status && err.response)
+            res.status(err.status).send(err.response.data)
+        else
+            res.status(500).send(err)
     })
 });
 
@@ -30,7 +34,10 @@ app.post('/test', function (req, res) {
         res.status(clientResponse.status).send(clientResponse.data)
     })
     .catch(err => {
-        res.status(err.status || 500).send(err.response.data || err)
+        if (err.status && err.response)
+            res.status(err.status).send(err.response.data)
+        else
+            res.status(500).send(err)
     })
 });
 
