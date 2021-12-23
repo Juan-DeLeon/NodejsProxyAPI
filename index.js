@@ -21,6 +21,19 @@ app.post('/', function (req, res) {
     })
 });
 
+app.post('/test', function (req, res) {
+    console.log(req.body)
+    axios({
+        method: 'GET',
+        url: "https://httpstat.us/201",
+    }).then(clientResponse => {
+        res.status(clientResponse.status).send(clientResponse.data)
+    })
+    .catch(err => {
+        res.status(err.status || 500).send(err.response.data || err)
+    })
+});
+
 // start the server in the port 3000
 const PORT = process.env.NODE_PORT || 3000;
 
