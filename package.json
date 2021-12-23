@@ -1,0 +1,24 @@
+{
+  "name": "nodejsproxyapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juan-DeLeon/NodejsProxyAPI.git"
+  },
+  "author": "juan.deleon@definityfirst.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juan-DeLeon/NodejsProxyAPI/issues"
+  },
+  "homepage": "https://github.com/Juan-DeLeon/NodejsProxyAPI#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.2"
+  }
+}
