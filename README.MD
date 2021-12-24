@@ -5,10 +5,23 @@
 
     npm install
 
-## Uso
+## Correr localmente
 
     npm start
 
-La app corre por default en puerto 3000, se puede cambiar con la variable de ambiente `NODE_PORT`.
+La app corre por default en puerto 3000, se puede cambiar con la variable de ambiente `NODE_PORT` agregando un archivo .env junto a index.js.
 
-    setx NODE_PORT <PUERTO>
+`.env`:
+
+    NODE_PORT=<NUMERO PUERTO>
+
+
+## Compilar para windows
+
+Para compilar solo se debe correr.
+
+    npm run build
+
+La app corre por default en puerto 3000, se puede cambiar con la variable de ambiente `NODE_PORT` en una terminal de Windows:
+
+    setx NODE_PORT "<PUERTO>"
