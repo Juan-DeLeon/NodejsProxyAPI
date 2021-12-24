@@ -10,7 +10,7 @@ dotenv.config();
 // API TO REDIRECT POST CALLS
 const CSC_API = 'http://10.26.110.247:9035/api/LeadDigital'
 
-// on the request to root (localhost:3000/)
+// PARA REENVIAR PETICIONES A CALL CENTER
 app.post('/', function (req, res) {
     axios({
         method: 'POST',
@@ -28,7 +28,20 @@ app.post('/', function (req, res) {
     })
 });
 
+
+// PRUEBA SIMPLE GET
+app.get('/test', function (req, res) {
+    res.status(200).send("GET")
+});
+
+// PRUEBA POST, IMPRIME BODY EN CONSOLA
 app.post('/test', function (req, res) {
+    console.log(req.body);
+    res.status(201).send("POST")
+});
+
+// PRUEBA CON API DUMMY PARA CACHAR CODIGOS DE ERROR
+app.post('/testapi', function (req, res) {
     console.log(req.body)
     axios({
         method: 'GET',
