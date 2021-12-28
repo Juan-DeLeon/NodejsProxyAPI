@@ -21,8 +21,8 @@ app.post('/', function (req, res) {
         res.status(clientResponse.status).send(clientResponse.data)
     })
     .catch(err => {
-        if (err.status && err.response)
-            res.status(err.status).send(err.response.data)
+        if (err.response)
+            res.status(err.response.status).send(err.response.data)
         else
             res.status(500).send(err)
     })
@@ -45,13 +45,13 @@ app.post('/testapi', function (req, res) {
     console.log(req.body)
     axios({
         method: 'GET',
-        url: "https://httpstat.us/201",
+        url: "https://httpstat.us/400",
     }).then(clientResponse => {
         res.status(clientResponse.status).send(clientResponse.data)
     })
     .catch(err => {
-        if (err.status && err.response)
-            res.status(err.status).send(err.response.data)
+        if (err.response)
+            res.status(err.response.status).send(err.response.data)
         else
             res.status(500).send(err)
     })
