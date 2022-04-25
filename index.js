@@ -9,12 +9,31 @@ dotenv.config();
 
 // API TO REDIRECT POST CALLS
 const CSC_API = 'http://10.26.110.247:9035/api/LeadDigital'
+const CREDITEA_API = 'http://10.26.110.247:9136/api/Creditea'
 
 // PARA REENVIAR PETICIONES A CALL CENTER
 app.post('/', function (req, res) {
     axios({
         method: 'POST',
         url: CSC_API,
+        data: req.body,
+        timeout: 5000
+    }).then(clientResponse => {
+        res.status(clientResponse.status).send(clientResponse.data)
+    })
+    .catch(err => {
+        if (err.response)
+            res.status(err.response.status).send(err.response.data)
+        else
+            res.status(500).send(err)
+    })
+});
+
+// PARA REENVIAR PETICIONES A CALL CENTER
+app.post('/creditea', function (req, res) {
+    axios({
+        method: 'POST',
+        url: CREDITEA_API,
         data: req.body,
         timeout: 5000
     }).then(clientResponse => {
